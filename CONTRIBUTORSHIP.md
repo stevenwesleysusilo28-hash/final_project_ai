@@ -145,9 +145,7 @@ This project successfully demonstrates how computational approaches can address 
 ## Signature & Approval
 
 **Developer:** Steven Wesley Susilo  
-**Date:** 2024  
+**Date:** 2026
 **Status:** ✅ Approved
 
----
 
-**Note:** This is a solo project, so all contributions are from the single team member listed above.
