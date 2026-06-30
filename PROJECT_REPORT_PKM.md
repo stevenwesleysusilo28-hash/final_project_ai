@@ -17,7 +17,7 @@
 
 **Institusi:** Binus universty
 
-**Tahun:** 2024
+**Tahun:** 2026
 
 ---
 
