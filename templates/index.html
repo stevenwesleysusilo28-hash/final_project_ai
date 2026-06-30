@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Malnutrition Monitoring System{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h2>Child Malnutrition Monitoring System</h2>
+    <p>Monitor and track nutritional status of children in Indonesia</p>
+    <p class="subtitle">An SDG #3 Initiative: Good Health and Well-being</p>
+</div>
+
+<div class="info-section">
+    <h3>📋 About This System</h3>
+    <p>
+        This application helps healthcare workers and parents monitor the nutritional status of children 
+        by calculating BMI (Body Mass Index) and providing nutritional status assessments based on 
+        WHO and CDC growth standards.
+    </p>
+</div>
+
+<div class="features">
+    <div class="feature-card">
+        <h4>➕ Add Records</h4>
+        <p>Record child's height, weight, and age to assess nutritional status</p>
+    </div>
+    <div class="feature-card">
+        <h4>📊 Dashboard</h4>
+        <p>View all records and nutritional status statistics</p>
+    </div>
+    <div class="feature-card">
+        <h4>🧮 Calculator</h4>
+        <p>Quick BMI calculator for immediate assessment</p>
+    </div>
+</div>
+
+<div class="cta-buttons">
+    <a href="/add" class="btn btn-primary">Start Adding Records</a>
+    <a href="/dashboard" class="btn btn-secondary">View Dashboard</a>
+</div>
+
+<div class="info-section">
+    <h3>📖 Nutritional Status Categories</h3>
+    <table class="status-table">
+        <tr>
+            <th>Status</th>
+            <th>BMI Range (Age 2+)</th>
+            <th>Action Required</th>
+        </tr>
+        <tr class="red">
+            <td>Severely Underweight</td>
+            <td>&lt; 14</td>
+            <td>🚨 Urgent Intervention</td>
+        </tr>
+        <tr class="orange">
+            <td>Underweight</td>
+            <td>14 - 16</td>
+            <td>⚠️ Monitor Closely</td>
+        </tr>
+        <tr class="green">
+            <td>Normal</td>
+            <td>16 - 21</td>
+            <td>✅ Healthy</td>
+        </tr>
+        <tr class="yellow">
+            <td>Overweight</td>
+            <td>21 - 24</td>
+            <td>⚠️ Monitor Diet</td>
+        </tr>
+        <tr class="red">
+            <td>Obese</td>
+            <td>&gt; 24</td>
+            <td>🚨 Medical Consultation</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}
