@@ -15,7 +15,7 @@
 
 **Nama Pengembang:** Steven Wesley Susilo
 
-**Institusi:** [Nama Universitas Anda]
+**Institusi:** Binus universty
 
 **Tahun:** 2024
 
