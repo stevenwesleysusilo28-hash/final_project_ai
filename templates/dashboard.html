@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Malnutrition Monitoring System{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <h2>Monitoring Dashboard</h2>
+
+    <div class="stats-container">
+        <div class="stat-card">
+            <h4>Total Records</h4>
+            <p class="stat-number">{{ total }}</p>
+        </div>
+        <div class="stat-card red">
+            <h4>Severely Underweight</h4>
+            <p class="stat-number">{{ status_count['Severely Underweight'] }}</p>
+        </div>
+        <div class="stat-card orange">
+            <h4>Underweight</h4>
+            <p class="stat-number">{{ status_count['Underweight'] }}</p>
+        </div>
+        <div class="stat-card green">
+            <h4>Normal</h4>
+            <p class="stat-number">{{ status_count['Normal'] }}</p>
+        </div>
+        <div class="stat-card yellow">
+            <h4>Overweight</h4>
+            <p class="stat-number">{{ status_count['Overweight'] }}</p>
+        </div>
+        <div class="stat-card red">
+            <h4>Obese</h4>
+            <p class="stat-number">{{ status_count['Obese'] }}</p>
+        </div>
+    </div>
+
+    {% if records %}
+    <table class="records-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age (months)</th>
+                <th>Weight (kg)</th>
+                <th>Height (cm)</th>
+                <th>BMI</th>
+                <th>Status</th>
+                <th>Date Added</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+            <tr class="status-{{ record.status.lower().replace(' ', '-') }}">
+                <td>{{ record.name }}</td>
+                <td>{{ record.age_months }}</td>
+                <td>{{ record.weight_kg }}</td>
+                <td>{{ record.height_cm }}</td>
+                <td>{{ "%.2f"|format(record.bmi) }}</td>
+                <td><strong>{{ record.status }}</strong></td>
+                <td>{{ record.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                <td>
+                    <button class="btn-delete" onclick="deleteRecord({{ record.id }})">Delete</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="no-data">
+        <p>No records found. <a href="/add">Add the first record</a></p>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    async function deleteRecord(recordId) {
+        if (confirm('Are you sure you want to delete this record?')) {
+            try {
+                const response = await fetch(`/api/delete/${recordId}`, {
+                    method: 'DELETE'
+                });
+                const data = await response.json();
+                if (data.success) {
+                    location.reload();
+                }
+            } catch (error) {
+                alert('Error deleting record: ' + error.message);
+            }
+        }
+    }
+</script>
+{% endblock %}
