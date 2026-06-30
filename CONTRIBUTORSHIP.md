@@ -10,7 +10,7 @@
 
 | Name | NIM/ID | Role | Contribution % |
 |------|--------|------|-----------------|
-| Steven Wesley Susilo | [Your ID] | Project Lead | 100% |
+| Steven Wesley Susilo | [2902646415] | Project Lead | 100% |
 
 ---
 
